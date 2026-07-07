@@ -111,17 +111,18 @@ Llistes:
 
 📚 Paraules clau i primitives
 
-Paraula Descripció
-definir Assigna un valor a un nom
-funció Crea una funció anònima (lambda)
-si Condicional (expressió)
-escriure Mostra text per pantalla
-prova Seqüència d'expressions (retorna l'última)
-llista Crea una llista amb els arguments
-carrega Importa un mòdul de Python
-+, -, *, / Operadors aritmètics
-=, <, >, <=, >= Comparacions
-i, o, no Operadors lògics
+| Paraula       | Descripció |
+|---------------|------------|
+| `definir`     | Assigna un valor a un nom |
+| `funció`      | Crea una funció anònima (lambda) |
+| `si`          | Condicional (expressió) |
+| `escriure`    | Mostra text per pantalla |
+| `prova`       | Seqüència d'expressions (retorna l'última) |
+| `llista`      | Crea una llista amb els arguments |
+| `carrega`     | Importa un mòdul de Python |
+| `+`, `-`, `*`, `/` | Operadors aritmètics |
+| `=`, `<`, `>`, `<=`, `>=` | Comparacions |
+| `i`, `o`, `no` | Operadors lògics |
 
 🎯 Filosofia
 
