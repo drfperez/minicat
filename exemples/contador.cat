@@ -1,0 +1,14 @@
+(definir crear-comptador
+  (funció (inicial)
+    (funció ()
+      (definir inicial (+ inicial 1))
+      inicial)))
+
+(definir c1 (crear-comptador 0))
+(definir c2 (crear-comptador 100))
+
+(escriure "c1:" (c1))   ; 1
+(escriure "c1:" (c1))   ; 2
+(escriure "c2:" (c2))   ; 101
+(escriure "c1:" (c1))   ; 3
+(escriure "c2:" (c2))   ; 102
