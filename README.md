@@ -23,7 +23,7 @@ El seu intèrpret complet ocupa menys de 100 línies de Python i està pensat pe
 1. **Descarrega o clona el repositori:**
 
    ```bash
-   git clone https://github.com/EL-TEU-USUARI/minicat.git
+   git clone https://github.com/drfperez/minicat.git
    cd minicat
 ```
 
