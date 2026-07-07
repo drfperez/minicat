@@ -1,0 +1,7 @@
+(definir factorial
+  (funció (n)
+    (si (<= n 1)
+        1
+        (* n (factorial (- n 1))))))
+
+(escriure "El factorial de 5 és:" (factorial 5))
