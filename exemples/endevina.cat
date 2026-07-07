@@ -1,0 +1,17 @@
+(definir random (carrega "random"))
+(definir secret (random.randint 1 100))
+(escriure "He pensat un número entre 1 i 100. Endevina'l!")
+
+(definir jugar
+  (funció (intent)
+    (si (= intent secret)
+        (escriure "Correcte! El número era" secret)
+        (si (< intent secret)
+            (prova
+              (escriure "Massa petit. Torna a provar:")
+              (jugar (random.randint 1 100)))  ; Simulació: en realitat caldria input
+            (prova
+              (escriure "Massa gran. Torna a provar:")
+              (jugar (random.randint 1 100)))))))
+
+(jugar (random.randint 1 100))  ; Primer intent aleatori (demostració)
