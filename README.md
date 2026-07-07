@@ -2,7 +2,7 @@
 # MiniCat 🐱
 
 **MiniCat** és un mini-llenguatge de programació funcional amb sintaxi Lisp i **paraules clau en català**.  
-El seu intèrpret complet ocupa menys de 100 línies de Python i està pensat per ser didàctic, entenedor i fàcil de modificar.
+El seu intèrpret complet ocupa menys de 200 línies de Python i està pensat per ser didàctic, entenedor i fàcil de modificar.
 
 ## ✨ Característiques
 
