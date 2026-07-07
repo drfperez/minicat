@@ -1,0 +1,5 @@
+(definir mcd
+  (funció (a b)
+    (si (= b 0)
+        a
+        (mcd b (resta a b)))))  ; resta és mòdul? Cal operador '%'!
