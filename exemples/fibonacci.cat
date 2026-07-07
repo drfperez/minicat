@@ -1,0 +1,7 @@
+(definir fib
+  (funció (n)
+    (si (< n 2)
+        n
+        (+ (fib (- n 1)) (fib (- n 2))))))
+
+(escriure "El desè nombre de Fibonacci és:" (fib 10))
