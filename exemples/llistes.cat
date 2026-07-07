@@ -1,0 +1,10 @@
+(definir nums (llista 10 20 30 40 50))
+(escriure "Llista original:" nums)
+
+; Podem fer servir funcions de Python directament
+(definir len (carrega "builtins").len)
+(escriure "Longitud de la llista:" (len nums))
+
+; Suma amb sum() de Python
+(definir sum (carrega "builtins").sum)
+(escriure "Suma dels elements:" (sum nums))
