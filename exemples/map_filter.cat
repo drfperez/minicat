@@ -1,0 +1,12 @@
+(definir mapa
+  (funció (f llista)
+    (si (= (llista) llista)
+        (llista)
+        (prova
+          (definir primer (carrega "operator").itemgetter(0))
+          (definir resta  (carrega "operator").itemgetter((llista 1)))
+          ; Aquesta versió simplificada no té accés natiu a head/tail,
+          ; per tant fem servir funcions de Python per manipular llistes.
+          ; (Per a una demo educativa suposem que existeixen 'cap' i 'resta')
+          (escriure "Per fer map caldria afegir primitives head/tail a l'intèrpret")
+        ))))
