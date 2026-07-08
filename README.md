@@ -1,337 +1,603 @@
-# 🐱 MiniCat
 
-Un mini llenguatge de programació funcional inspirat en Lisp, escrit íntegrament en català.
 
-MiniCat permet experimentar amb conceptes de llenguatges de programació, interpretació, compilació, macros i programació funcional utilitzant una sintaxi senzilla i educativa.
+# MiniCat
 
----
+MiniCat és un petit llenguatge de programació inspirat en **Lisp** implementat íntegrament en **Python**.
 
-## ✨ Característiques principals
+L'objectiu del projecte és mostrar, de manera senzilla i educativa, com es pot construir un intèrpret complet format per:
 
-- Sintaxi Lisp amb notació prefixada
-- Paraules clau en català
-- Variables i funcions
-- Closures i funcions d'ordre superior
-- Recursió i optimització de cua (TCO)
-- Llistes i vectors
-- Diccionaris
-- Macros definides per l'usuari
-- Gestió d'errors
-- Mode de traça per depuració
-- Compilació a funcions Python natives
-- REPL interactiu
-- Tests automatitzats
+* Lexer (tokenitzador)
+* Parser
+* AST (Arbre de Sintaxi Abstracta)
+* Entorn de variables
+* Funcions definides per l'usuari
+* Avaluador
+* Biblioteca estàndard
+* REPL interactiu
+
+El llenguatge utilitza sintaxi basada en expressions entre parèntesis, molt semblant a Scheme o Lisp, però amb paraules clau en català.
 
 ---
 
-## 📦 Requisits
+# Característiques
 
-- Python 3.8 o superior
-- Cap dependència externa
+MiniCat inclou:
+
+* Sintaxi tipus Lisp
+* Variables globals
+* Funcions definides per l'usuari
+* Funcions anònimes
+* Funcions recursives
+* Condicionals
+* Bucles
+* Gestió d'errors
+* Llistes
+* Diccionaris
+* Operacions matemàtiques
+* Funcions trigonomètriques
+* Nombres enters i decimals
+* Cadenes de text
+* Booleans
+* Comentaris
+* REPL interactiu
 
 ---
 
-## 🚀 Instal·lació
+# Arquitectura
 
-```bash
-git clone https://github.com/el-teu-usuari/minicat.git
-cd minicat
-python minicat.py
+El projecte està dividit en diverses parts.
+
+```
+Codi font
+│
+├── Lexer
+│     Converteix text en tokens
+│
+├── Parser
+│     Converteix tokens en AST
+│
+├── Entorn
+│     Guarda variables i funcions
+│
+├── Biblioteca estàndard
+│     Funcions incorporades
+│
+├── Avaluador
+│     Executa l'AST
+│
+└── REPL
+      Consola interactiva
 ```
 
 ---
 
-## 🎮 Ús
+# Instal·lació
 
-### REPL interactiu
+Només cal Python 3.
 
 ```bash
-python minicat.py
+python3 minicat.py
+```
+
+No necessita cap dependència externa.
+
+Només utilitza:
+
+* math
+* random
+* re (actualment no utilitzat)
+
+---
+
+# Sintaxi
+
+Les expressions tenen la forma:
+
+```lisp
+(funció argument1 argument2 ...)
 ```
 
 Exemple:
 
-```text
-MiniCat REPL. Escriu 'sortir' per acabar.
+```lisp
+(+ 2 3)
+```
 
-minicat> (+ 1 2)
-3
+Resultat
 
-minicat> (definir saluda (funció (nom)
-             (concat "Hola, " nom)))
-
-minicat> (saluda "Pere")
-Hola, Pere
+```
+5
 ```
 
 ---
 
-### Executar un fitxer
+# Comentaris
 
-```bash
-python minicat.py programa.cat
+Tot el que segueix un punt i coma és un comentari.
+
+```lisp
+; això és un comentari
+(+ 2 3)
 ```
 
 ---
 
-# 📖 Guia ràpida
+# Variables
 
-## Variables
+Es creen amb **definir**.
 
 ```lisp
 (definir x 10)
-(definir y (* x 2))
+
+(definir y 20)
+
+(+ x y)
+```
+
+Resultat
+
+```
+30
 ```
 
 ---
 
-## Operacions matemàtiques
+# Operacions matemàtiques
+
+## Suma
 
 ```lisp
-(+ 1 2)
-(- 10 3)
+(+ 3 5)
+```
+
+## Resta
+
+```lisp
+(- 8 2)
+```
+
+## Multiplicació
+
+```lisp
 (* 4 5)
-(/ 10 2)
-
-(modul 10 3)
-(expon 2 8)
-(arrel 16)
 ```
 
----
-
-## Condicionals
+## Divisió
 
 ```lisp
-(si (> 5 3)
-    "cert"
-    "fals")
+(/ 20 4)
 ```
 
 ---
 
-## Funcions
+# Comparacions
 
 ```lisp
-(definir suma
-  (funció (a b)
-    (+ a b)))
+(< 3 5)
 
-(suma 3 4)
+(> 5 2)
+
+(= 10 10)
+
+(<= 5 8)
+
+(>= 4 4)
 ```
 
 ---
 
-## Recursió
+# Booleans
+
+Existeixen dos valors:
+
+```lisp
+cert
+
+fals
+```
+
+---
+
+# Operadors lògics
+
+```lisp
+(i cert cert)
+
+(o fals cert)
+
+(no fals)
+```
+
+---
+
+# Condicionals
+
+```lisp
+(si (> 10 5)
+
+    "gran"
+
+    "petit")
+```
+
+Resultat
+
+```
+gran
+```
+
+---
+
+# Bucles
+
+```lisp
+(definir x 0)
+
+(mentre (< x 5)
+
+    (definir x (+ x 1)))
+```
+
+---
+
+# Funcions
+
+## Funció anònima
+
+```lisp
+(funció (x)
+
+    (* x x))
+```
+
+---
+
+## Definir funcions
+
+```lisp
+(definir-funció quadrat (x)
+
+    (* x x))
+```
+
+Ús
+
+```lisp
+(quadrat 8)
+```
+
+Resultat
+
+```
+64
+```
+
+---
+
+# Funcions recursives
+
+Exemple factorial.
 
 ```lisp
 (definir-funció factorial (n)
-  (si (<= n 1)
-      1
-      (* n (factorial (- n 1)))))
+
+    (si (= n 0)
+
+        1
+
+        (* n
+           (factorial (- n 1)))))
+```
+
+Després
+
+```lisp
+(factorial 5)
+```
+
+Resultat
+
+```
+120
 ```
 
 ---
 
-## Llistes
+# Llistes
+
+Crear
 
 ```lisp
-(llista 1 2 3)
+(llista 1 2 3 4)
+```
 
-(cons 0 (llista 1 2 3))
+Primer element
 
-(car (llista 10 20 30))
+```lisp
+(car (llista 1 2 3))
+```
 
-(cdr (llista 10 20 30))
+Resultat
+
+```
+1
+```
+
+Resta de la llista
+
+```lisp
+(cdr (llista 1 2 3))
+```
+
+Resultat
+
+```
+(2 3)
+```
+
+Longitud
+
+```lisp
+(longitud (llista 1 2 3))
 ```
 
 ---
 
-## Cadenes
+# Cadenes
 
 ```lisp
-(concat "Hola" " " "món")
+"Hola món"
+```
 
-(subcadena "abcdef" 2 4)
+Concatenació
 
+```lisp
+(concat "Hola " "MiniCat")
+```
+
+Conversió
+
+```lisp
 (cadena 123)
 ```
 
 ---
 
-## Diccionaris
+# Conversió numèrica
 
 ```lisp
-(definir persona
-  (diccionari
-      :nom "Anna"
-      :edat 25))
-
-(obté persona :nom)
-
-(assigna persona :edat 26)
+(numero "123")
 ```
-
----
-
-## Gestió d'errors
 
 ```lisp
-(provar (/ 1 0) 999)
-```
-
-Retorna:
-
-```text
-999
+(numero "5.4")
 ```
 
 ---
 
-## Macros
+# Diccionaris
+
+Crear
 
 ```lisp
-(definir-macro quan
-  (funció (cond . cos)
-    (llista 'si cond
-      (cons 'prova cos))))
+(definir d (diccionari))
 ```
 
-Ús:
+Assignar
 
 ```lisp
-(quan (> 3 2)
-   (escriure "OK"))
+(assigna d "nom" "MiniCat")
 ```
 
----
-
-## Compilació a Python
+Llegir
 
 ```lisp
-(definir calcul
-  (compila
-    (+ 3 4)))
-
-(calcul)
+(obté d "nom")
 ```
 
-Resultat:
+---
 
-```text
-7
-```
+# Funcions matemàtiques
 
-També es poden compilar funcions:
+Valor de π
 
 ```lisp
-(definir doble-comp
-  (compila
-    (funció (x)
-      (* x 2))))
+pi
 ```
 
----
-
-## Traça d'execució
+Arrel quadrada
 
 ```lisp
-(activar-traça)
-
-(+ 1 2)
-
-(desactivar-traça)
+(arrel 81)
 ```
 
-Sortida:
+Sinus
 
-```text
--> (+ 1 2)
-<- 3
+```lisp
+(sin pi)
 ```
 
----
+Cosinus
 
-# 🧪 Tests
-
-Executa tota la bateria de proves:
-
-```bash
-python test_minicat_complet.py
+```lisp
+(cos pi)
 ```
 
-Els tests cobreixen:
+Tangents
 
-- aritmètica
-- lògica
-- variables
-- funcions
-- condicionals
-- bucles
-- excepcions
-- llistes
-- vectors
-- cadenes
-- diccionaris
-- macros
-- compilació
-- TCO
-- entrada/sortida
-- càrrega de fitxers
-
----
-
-# 📁 Estructura del projecte
-
-```text
-minicat/
-├── minicat.py
-├── test_minicat.py
-├── LICENSE
-└── README.md
+```lisp
+(tan pi)
 ```
 
 ---
 
-# 👨‍💻 Autor
+# Nombres aleatoris
 
-**Francesc Pérez García**
-
-Projecte educatiu orientat a l'aprenentatge de:
-
-- Llenguatges de programació
-- Intèrprets
-- Compiladors
-- Programació funcional
-- Metaprogramació amb macros
-
----
-
-# 📜 Llicència
-
-Aquest projecte es distribueix sota la llicència MIT.
-
-Consulta el fitxer:
-
-```text
-LICENSE
+```lisp
+(aleatori)
 ```
 
-per veure'n els detalls.
+Retorna un nombre entre
+
+```
+0.0
+
+i
+
+1.0
+```
 
 ---
 
-# 🌱 Possibles millores futures
+# Escriure per pantalla
 
-- Sistema de mòduls
-- Biblioteca estàndard ampliada
-- Compilador WASM
-- Compilador a C
-- Editor gràfic propi
-- Documentació interactiva
-- Entorn educatiu per a instituts
+```lisp
+(escriure "Hola")
+```
+
+També
+
+```lisp
+(escriure 1 2 3)
+```
 
 ---
 
-**Gaudeix programant en català amb MiniCat! 🐾**
-```````
+# Gestió d'errors
+
+MiniCat incorpora una construcció senzilla.
+
+```lisp
+(provar
+
+    (/ 5 0)
+
+    "Error")
+```
+
+Si hi ha una excepció, retorna el segon valor.
+
+---
+
+# Quote
+
+És possible evitar l'avaluació amb `'`.
+
+```lisp
+'(1 2 3)
+```
+
+Equivalent a
+
+```lisp
+(citar (1 2 3))
+```
+
+---
+
+# REPL
+
+En executar el programa apareix:
+
+```
+MiniCat v5
+
+minicat>
+```
+
+Per sortir:
+
+```
+sortir
+```
+
+El REPL detecta automàticament quan els parèntesis estan equilibrats.
+
+---
+
+# Exemple complet
+
+```lisp
+(definir-funció factorial (n)
+
+    (si (= n 0)
+
+        1
+
+        (* n (factorial (- n 1)))))
+
+(escriure (factorial 6))
+```
+
+Sortida
+
+```
+720
+```
+
+---
+
+# Estructura interna
+
+```
+minicat.py
+
+├── Lexer
+├── Parser
+├── Entorn
+├── Funcions MiniCat
+├── Biblioteca estàndard
+├── Avaluador
+├── Execució
+└── REPL
+```
+
+---
+
+# Limitacions actuals
+
+Actualment MiniCat no disposa de:
+
+* Macros
+* Tail Call Optimization
+* Fitxers
+* Imports
+* Mòduls
+* Classes
+* Objectes
+* Lambda variàdica
+* Col·lecció d'escombraries pròpia
+* Optimitzador
+* Compilador
+
+---
+
+# Possibles millores
+
+* Sistema de paquets
+* Mòduls
+* Excepcions pròpies
+* Iteradors
+* Funcions d'ordre superior
+* map
+* filter
+* reduce
+* JSON
+* Entrada/sortida de fitxers
+* Expressions regulars
+* Biblioteca estàndard ampliada
+* Tipus nous (sets, tuples...)
+* Compilació a bytecode
+
+---
+
+# Llicència
+
+Aquest projecte és de codi obert i es pot utilitzar amb finalitats educatives, d'aprenentatge i experimentació.
+
+---
+
+# Autor
+
+MiniCat v5 és un intèrpret minimalista inspirat en Lisp, desenvolupat íntegrament en Python amb l'objectiu d'explicar el funcionament intern d'un llenguatge de programació: des de la tokenització fins a l'execució de codi.
+
