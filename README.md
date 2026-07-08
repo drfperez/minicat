@@ -94,6 +94,12 @@ Utilitza únicament:
 - `re` (actualment no utilitzat)
 
 ---
+# 📂 Executar un fitxer MiniCat
+
+Si tens el codi en un fitxer (per exemple `exemple.cat`), pots executar-lo directament passant-lo com a argument:
+
+```bash
+python3 minicat.py exemple.cat
 
 # 📘 Sintaxi bàsica
 
