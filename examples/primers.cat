@@ -1,0 +1,45 @@
+; Comprova si un nombre és primer
+(definir-funció es-primer (n)
+    (si (<= n 1)
+        fals
+        (provar
+            (definir-funció comprova (d)
+                (si (> (* d d) n)
+                    cert
+                    (si (= (% n d) 0)
+                        fals
+                        (comprova (+ d 1))
+                    )
+                )
+            )
+            (comprova 2)
+        )
+    )
+)
+
+; Troba el següent nombre primer a partir de n
+(definir-funció seguent-primer (n)
+    (si (es-primer (+ n 1))
+        (+ n 1)
+        (seguent-primer (+ n 1))
+    )
+)
+
+; Suma dels primers n nombres primers
+(definir-funció suma-primers (quants)
+    (definir suma 0)
+    (definir comptador 0)
+    (definir actual 1)
+
+    (mentre (< comptador quants)
+        (definir actual (seguent-primer actual))
+        (definir suma (+ suma actual))
+        (definir comptador (+ comptador 1))
+    )
+
+    suma
+)
+
+; Exemple: NO executis 1.000.000, és molt lent.
+; Prova amb 10 o 100:
+(suma-primers 10)
