@@ -1,0 +1,17 @@
+(definir-funció equacio2 (a b c)
+    (si (< (- (* b b) (* 4 a c)) 0)
+        "No hi ha solucions reals"
+        (si (= (- (* b b) (* 4 a c)) 0)
+            (concat "Una solució: x = "
+                    (/ (- b) (* 2 a)))
+            (llista
+                (/ (+ (- b) (arrel (- (* b b) (* 4 a c))))
+                   (* 2 a))
+                (/ (- (- b) (arrel (- (* b b) (* 4 a c))))
+                   (* 2 a))
+            )
+        )
+    )
+)
+
+(equacio2 1 -3 2)
