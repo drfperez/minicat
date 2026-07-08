@@ -1,18 +1,18 @@
+# 🐱 MiniCat — Llenguatge minimalista en català
 
-🐱 MiniCat — Llenguatge minimalista en català
+MiniCat és un petit llenguatge de programació inspirat en Lisp, implementat íntegrament en Python.
 
-MiniCat és un petit llenguatge de programació inspirat en Lisp, implementat íntegrament en Python.  
 Està pensat per ser simple, didàctic i transparent, ideal per aprendre com funciona un intèrpret real.
 
 MiniCat utilitza sintaxi basada en expressions entre parèntesis, amb paraules clau en català:
 
-`lisp
+```lisp
 (funció argument1 argument2 ...)
-`
+```
 
 ---
 
-🎯 Objectius del projecte
+# 🎯 Objectius del projecte
 
 MiniCat mostra com es construeix un intèrpret complet:
 
@@ -29,29 +29,29 @@ Tot en un únic fitxer Python, fàcil de llegir i modificar.
 
 ---
 
-✨ Característiques
+# ✨ Característiques
 
 MiniCat inclou:
 
-- Sintaxi tipus Lisp  
-- Variables i funcions definides per l’usuari  
-- Funcions recursives  
-- Condicionals (si)  
-- Bucles (mentre)  
-- Gestió d’errors (provar)  
-- Llistes i diccionaris  
-- Operacions matemàtiques i trigonomètriques  
-- Nombres enters i decimals  
-- Cadenes de text  
-- Booleans (cert, fals)  
-- Comentaris (;)  
-- REPL interactiu  
+- Sintaxi tipus Lisp
+- Variables i funcions definides per l’usuari
+- Funcions recursives
+- Condicionals (`si`)
+- Bucles (`mentre`)
+- Gestió d’errors (`provar`)
+- Llistes i diccionaris
+- Operacions matemàtiques i trigonomètriques
+- Nombres enters i decimals
+- Cadenes de text
+- Booleans (`cert`, `fals`)
+- Comentaris (`;`)
+- REPL interactiu
 
 ---
 
-🧱 Arquitectura del projecte
+# 🧱 Arquitectura del projecte
 
-`
+```text
 Codi font
 │
 ├── Lexer
@@ -71,104 +71,105 @@ Codi font
 │
 └── REPL
       Consola interactiva
-`
+```
 
 ---
 
-🚀 Instal·lació i execució
+# 🚀 Instal·lació i execució
 
 Només cal Python 3.
 
 Executa MiniCat:
 
-`bash
+```bash
 python3 minicat.py
-`
+```
 
-No necessita cap dependència externa.  
+No necessita cap dependència externa.
+
 Utilitza únicament:
 
-- math
-- random
-- re (actualment no utilitzat)
+- `math`
+- `random`
+- `re` (actualment no utilitzat)
 
 ---
 
-📘 Sintaxi bàsica
+# 📘 Sintaxi bàsica
 
 Les expressions tenen la forma:
 
-`lisp
+```lisp
 (funció argument1 argument2 ...)
-`
+```
 
-Exemples:
+Exemple:
 
-`lisp
+```lisp
 (+ 2 3)
-`
+```
 
 Resultat:
 
-`
+```text
 5
-`
+```
 
 ---
 
-🧩 Exemples bàsics
+# 🧩 Exemples bàsics
 
-🔢 Suma
+## 🔢 Suma
 
-`lisp
+```lisp
 (+ 10 20)
-`
+```
 
-📦 Llistes
+## 📦 Llistes
 
-`lisp
+```lisp
 (llista 1 2 3 4)
-`
+```
 
-🔍 Accedir al primer element
+## 🔍 Accedir al primer element
 
-`lisp
+```lisp
 (car (llista 10 20 30))
-`
+```
 
-🔁 Bucle mentre
+## 🔁 Bucle `mentre`
 
-`lisp
+```lisp
 (definir x 0)
 
 (mentre (< x 5)
     (escriure x)
     (definir x (+ x 1))
 )
-`
+```
 
-🧠 Condicional si
+## 🧠 Condicional `si`
 
-`lisp
+```lisp
 (si (> 10 5)
     "És més gran"
     "No és més gran"
 )
-`
+```
 
-🧮 Funció definida per l’usuari
+## 🧮 Funció definida per l’usuari
 
-`lisp
+```lisp
 (definir-funció quadrat (n)
     (* n n)
 )
 
 (quadrat 7)
-`
+```
 
-🔁 Recursió
+## 🔁 Recursió
 
-`lisp
+```lisp
 (definir-funció factorial (n)
     (si (= n 0)
         1
@@ -177,13 +178,13 @@ Resultat:
 )
 
 (factorial 5)
-`
+```
 
 ---
 
-🧪 Exemple complet: suma d’una llista
+# 🧪 Exemple complet: suma d’una llista
 
-`lisp
+```lisp
 (definir-funció suma (l)
     (si (= (longitud l) 0)
         0
@@ -192,15 +193,19 @@ Resultat:
 )
 
 (suma (llista 3 4 5))
-`
+```
 
 ---
 
-🎓 Per què MiniCat és educatiu?
+# 🎓 Per què MiniCat és educatiu?
 
-- La sintaxi és mínima → menys soroll, més conceptes.  
-- Tot és una expressió → com Scheme, ideal per aprendre.  
-- El codi Python és curt i llegible → perfecte per estudiar intèrprets.  
-- Les funcions en català ajuden a l’aprenentatge inicial.  
+- La sintaxi és mínima → menys soroll, més conceptes.
+- Tot és una expressió → com Scheme, ideal per aprendre.
+- El codi Python és curt i llegible → perfecte per estudiar intèrprets.
+- Les funcions en català ajuden a l’aprenentatge inicial.
 
 ---
+
+## 📚 Resum
+
+MiniCat és un llenguatge minimalista inspirat en Lisp que permet explorar els fonaments dels llenguatges de programació i la construcció d’intèrprets. Amb una sintaxi senzilla, funcions en català i una implementació compacta en Python, és una eina ideal tant per a estudiants com per a docents que vulguin entendre el funcionament intern d’un llenguatge de programació.
