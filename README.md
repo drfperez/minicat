@@ -1,148 +1,337 @@
+# 🐱 MiniCat v4
 
-# MiniCat 🐱
+Un mini llenguatge de programació funcional inspirat en Lisp, escrit íntegrament en català.
 
-**MiniCat** és un mini-llenguatge de programació funcional amb sintaxi Lisp i **paraules clau en català**.  
-El seu intèrpret complet ocupa menys de 200 línies de Python i està pensat per ser didàctic, entenedor i fàcil de modificar.
+MiniCat permet experimentar amb conceptes de llenguatges de programació, interpretació, compilació, macros i programació funcional utilitzant una sintaxi senzilla i educativa.
 
-## ✨ Característiques
+---
 
-- Sintaxi mínima basada en expressions S (tot entre parèntesis)
-- Paraules reservades en català: `definir`, `funció`, `si`, `escriure`...
-- Tipus de dades: nombres, cadenes de text, llistes i funcions (clausures)
-- Àmbit lèxic: les funcions capturen l'entorn on es defineixen
-- 100% funcional: totes les expressions retornen un valor
-- REPL interactiu i capacitat d'executar fitxers `.cat`
-- Pont amb Python mitjançant la funció `carrega`
+## ✨ Característiques principals
+
+- Sintaxi Lisp amb notació prefixada
+- Paraules clau en català
+- Variables i funcions
+- Closures i funcions d'ordre superior
+- Recursió i optimització de cua (TCO)
+- Llistes i vectors
+- Diccionaris
+- Macros definides per l'usuari
+- Gestió d'errors
+- Mode de traça per depuració
+- Compilació a funcions Python natives
+- REPL interactiu
+- Tests automatitzats
+
+---
 
 ## 📦 Requisits
 
-- Python 3.6 o superior (cap dependència externa)
+- Python 3.8 o superior
+- Cap dependència externa
 
-## 🚀 Instal·lació i ús
+---
 
-1. **Descarrega o clona el repositori:**
+## 🚀 Instal·lació
 
-   ```bash
-   git clone https://github.com/drfperez/minicat.git
-   cd minicat
+```bash
+git clone https://github.com/el-teu-usuari/minicat.git
+cd minicat
+python minicat_v4.py
 ```
 
-2. Executa en mode interactiu (REPL):
-   ```bash
-   python minicat.py
-   ```
-   Sortida:
-   ```
-   MiniCat REPL. Escriu 'sortir' per acabar.
-   minicat> 
-   ```
-3. Executa un fitxer d'exemple:
-   ```bash
-   python minicat.py exemples/hola_mon.cat
-   ```
-   Altres exemples:
-   ```bash
-   python minicat.py exemples/factorial.cat
-   python minicat.py exemples/funcions.cat
-   ```
+---
 
-📖 Sintaxi bàsica
+## 🎮 Ús
 
-Tot en MiniCat són expressions entre parèntesis amb notació prefixada (la funció va al davant):
+### REPL interactiu
 
-```lisp
-(funció arguments...)
+```bash
+python minicat_v4.py
 ```
 
-Exemples ràpids
+Exemple:
 
-Hola món:
+```text
+MiniCat v4 REPL. Escriu 'sortir' per acabar.
 
-```lisp
-(escriure "Hola món!")
+minicat> (+ 1 2)
+3
+
+minicat> (definir saluda (funció (nom)
+             (concat "Hola, " nom)))
+
+minicat> (saluda "Pere")
+Hola, Pere
 ```
 
-Variables i condicionals:
+---
+
+### Executar un fitxer
+
+```bash
+python minicat_v4.py programa.cat
+```
+
+---
+
+# 📖 Guia ràpida
+
+## Variables
 
 ```lisp
 (definir x 10)
-(si (> x 5) (escriure "gran") (escriure "petit"))
+(definir y (* x 2))
 ```
 
-Funcions:
+---
+
+## Operacions matemàtiques
 
 ```lisp
-(definir doble (funció (x) (* x 2)))
-(escriure (doble 5))   ; mostra 10
+(+ 1 2)
+(- 10 3)
+(* 4 5)
+(/ 10 2)
+
+(modul 10 3)
+(expon 2 8)
+(arrel 16)
 ```
 
-Factorial recursiu:
+---
+
+## Condicionals
 
 ```lisp
-(definir factorial
-  (funció (n)
-    (si (<= n 1)
-        1
-        (* n (factorial (- n 1))))))
-
-(escriure "El factorial de 5 és:" (factorial 5))
+(si (> 5 3)
+    "cert"
+    "fals")
 ```
 
-Funcions d'ordre superior:
+---
+
+## Funcions
 
 ```lisp
-(definir aplica (funció (f x) (f x)))
-(escriure (aplica doble 7))   ; mostra 14
+(definir suma
+  (funció (a b)
+    (+ a b)))
+
+(suma 3 4)
 ```
 
-Llistes:
+---
+
+## Recursió
 
 ```lisp
-(definir nums (llista 1 2 3 4 5))
-(escriure nums)
+(definir-funció factorial (n)
+  (si (<= n 1)
+      1
+      (* n (factorial (- n 1)))))
 ```
 
-Ús de mòduls Python:
+---
+
+## Llistes
 
 ```lisp
-(definir math (carrega "math"))
-(escriure "Pi val:" math.pi)
+(llista 1 2 3)
+
+(cons 0 (llista 1 2 3))
+
+(car (llista 10 20 30))
+
+(cdr (llista 10 20 30))
 ```
 
-📚 Paraules clau i primitives
+---
 
-| Paraula       | Descripció |
-|---------------|------------|
-| `definir`     | Assigna un valor a un nom |
-| `funció`      | Crea una funció anònima (lambda) |
-| `si`          | Condicional (expressió) |
-| `escriure`    | Mostra text per pantalla |
-| `prova`       | Seqüència d'expressions (retorna l'última) |
-| `llista`      | Crea una llista amb els arguments |
-| `carrega`     | Importa un mòdul de Python |
-| `+`, `-`, `*`, `/` | Operadors aritmètics |
-| `=`, `<`, `>`, `<=`, `>=` | Comparacions |
-| `i`, `o`, `no` | Operadors lògics |
+## Cadenes
 
-🎯 Filosofia
+```lisp
+(concat "Hola" " " "món")
 
-MiniCat demostra que es pot construir un llenguatge de programació complet amb molt poques línies de codi, fent servir la llengua materna per facilitar l'aprenentatge. És una eina ideal per a cursos d'introducció a la programació o per entendre com funcionen els intèrprets per dins.
+(subcadena "abcdef" 2 4)
 
-📄 Estructura del repositori
-
+(cadena 123)
 ```
+
+---
+
+## Diccionaris
+
+```lisp
+(definir persona
+  (diccionari
+      :nom "Anna"
+      :edat 25))
+
+(obté persona :nom)
+
+(assigna persona :edat 26)
+```
+
+---
+
+## Gestió d'errors
+
+```lisp
+(provar (/ 1 0) 999)
+```
+
+Retorna:
+
+```text
+999
+```
+
+---
+
+## Macros
+
+```lisp
+(definir-macro quan
+  (funció (cond . cos)
+    (llista 'si cond
+      (cons 'prova cos))))
+```
+
+Ús:
+
+```lisp
+(quan (> 3 2)
+   (escriure "OK"))
+```
+
+---
+
+## Compilació a Python
+
+```lisp
+(definir calcul
+  (compila
+    (+ 3 4)))
+
+(calcul)
+```
+
+Resultat:
+
+```text
+7
+```
+
+També es poden compilar funcions:
+
+```lisp
+(definir doble-comp
+  (compila
+    (funció (x)
+      (* x 2))))
+```
+
+---
+
+## Traça d'execució
+
+```lisp
+(activar-traça)
+
+(+ 1 2)
+
+(desactivar-traça)
+```
+
+Sortida:
+
+```text
+-> (+ 1 2)
+<- 3
+```
+
+---
+
+# 🧪 Tests
+
+Executa tota la bateria de proves:
+
+```bash
+python test_minicat_complet.py
+```
+
+Els tests cobreixen:
+
+- aritmètica
+- lògica
+- variables
+- funcions
+- condicionals
+- bucles
+- excepcions
+- llistes
+- vectors
+- cadenes
+- diccionaris
+- macros
+- compilació
+- TCO
+- entrada/sortida
+- càrrega de fitxers
+
+---
+
+# 📁 Estructura del projecte
+
+```text
 minicat/
-├── README.md
+├── minicat_v4.py
+├── test_minicat_complet.py
 ├── LICENSE
-├── .gitignore
-├── minicat.py              ← l'intèrpret principal
-└── exemples/
-    ├── hola_mon.cat
-    ├── factorial.cat
-    └── funcions.cat
+└── README.md
 ```
 
-📝 Llicència
+---
 
-Aquest projecte es distribueix sota la llicència MIT. Consulteu el fitxer LICENSE per a més informació.
+# 👨‍💻 Autor
 
+**Francesc Pérez García**
+
+Projecte educatiu orientat a l'aprenentatge de:
+
+- Llenguatges de programació
+- Intèrprets
+- Compiladors
+- Programació funcional
+- Metaprogramació amb macros
+
+---
+
+# 📜 Llicència
+
+Aquest projecte es distribueix sota la llicència MIT.
+
+Consulta el fitxer:
+
+```text
+LICENSE
+```
+
+per veure'n els detalls.
+
+---
+
+# 🌱 Possibles millores futures
+
+- Sistema de mòduls
+- Biblioteca estàndard ampliada
+- Compilador WASM
+- Compilador a C
+- Editor gràfic propi
+- Documentació interactiva
+- Entorn educatiu per a instituts
+
+---
+
+**Gaudeix programant en català amb MiniCat! 🐾**
+```````
