@@ -1,6 +1,0 @@
-(definir math (carrega "math"))
-(definir area-cercle
-  (funció (radi)
-    (* math.pi (* radi radi))))
-
-(escriure "L'àrea d'un cercle de radi 3 és:" (area-cercle 3))

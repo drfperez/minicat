@@ -1,8 +1,0 @@
-(definir doble (funció (x) (* x 2)))
-(definir aplica-doble (funció (f x) (f x)))
-
-(escriure "El doble de 5 és:" (doble 5))
-(escriure "Aplicant doble a 5:" (aplica-doble doble 5))
-
-(definir numeros (llista 1 2 3 4 5))
-(escriure "Llista de numeros:" numeros)
