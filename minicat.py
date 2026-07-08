@@ -280,6 +280,8 @@ def entorn_inicial():
         "escriure":
             lambda *x:
                 print(*x),
+        "input": lambda: input(),
+        "enter": lambda x: int(x),
 
     })
 
