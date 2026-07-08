@@ -1,0 +1,19 @@
+(definir-funció endevina ()
+    (definir secret (+ 1 (enter (* 100 (aleatori)))))
+    (definir intent -1)
+
+    (mentre (no (= intent secret))
+        (escriure "Introdueix un número entre 1 i 100:")
+        (definir intent (enter (input)))
+
+        (si (< intent secret)
+            (escriure "Massa petit!")
+            (si (> intent secret)
+                (escriure "Massa gran!")
+                (escriure "Correcte! Has encertat!")
+            )
+        )
+    )
+)
+
+(endevina)
