@@ -1,4 +1,4 @@
-# 🐱 MiniCat v4
+# 🐱 MiniCat
 
 Un mini llenguatge de programació funcional inspirat en Lisp, escrit íntegrament en català.
 
@@ -36,7 +36,7 @@ MiniCat permet experimentar amb conceptes de llenguatges de programació, interp
 ```bash
 git clone https://github.com/el-teu-usuari/minicat.git
 cd minicat
-python minicat_v4.py
+python minicat.py
 ```
 
 ---
@@ -46,13 +46,13 @@ python minicat_v4.py
 ### REPL interactiu
 
 ```bash
-python minicat_v4.py
+python minicat.py
 ```
 
 Exemple:
 
 ```text
-MiniCat v4 REPL. Escriu 'sortir' per acabar.
+MiniCat REPL. Escriu 'sortir' per acabar.
 
 minicat> (+ 1 2)
 3
@@ -69,7 +69,7 @@ Hola, Pere
 ### Executar un fitxer
 
 ```bash
-python minicat_v4.py programa.cat
+python minicat.py programa.cat
 ```
 
 ---
@@ -285,8 +285,8 @@ Els tests cobreixen:
 
 ```text
 minicat/
-├── minicat_v4.py
-├── test_minicat_complet.py
+├── minicat.py
+├── test_minicat.py
 ├── LICENSE
 └── README.md
 ```
